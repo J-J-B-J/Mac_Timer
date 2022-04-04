@@ -8,6 +8,7 @@
   "Timer Colour": [235, 235, 235],
   "Font Colour": [255, 255, 255],
   "Timer Sound": "Media/Time_Up.mp3",
+  "Play Sound": true,
   "Logo": "Media/Logos/Red.png",
   "Arrow Image": "Media/Arrow.png"
 }

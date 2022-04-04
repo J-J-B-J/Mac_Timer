@@ -41,7 +41,7 @@ class Timer:
         self.mins = 0
         self.secs = 0
         self.playing = False
-        self.sound_played = False
+        self.sound_played = True
         self.time_text = TimeText("0:00:00", self.font,
                                   self.settings["Timer Colour"],
                                   self.background)
@@ -142,9 +142,10 @@ class Timer:
                osascript -e 'display notification "Your timer just went off" \
                with title "Timer Done"'
                """)
-        pygame.mixer.music.load(self.settings["Timer Sound"])
-        pygame.mixer.music.set_volume(0.2)
-        pygame.mixer.music.play()
+        if self.settings["Play Sound"]:
+            pygame.mixer.music.load(self.settings["Timer Sound"])
+            pygame.mixer.music.set_volume(0.2)
+            pygame.mixer.music.play()
 
 
 def main():
