@@ -1,6 +1,6 @@
 {
   "WARNING!": "IF YOU DELETE THIS FILE OR ANY ATTRIBUTES BELOW, THE PROGRAM WILL THROW AN ERROR!",
-  "Screen Size": [500, 100],
+  "Screen Size": [270, 100],
   "Screen Caption": "MacTimer",
   "Screen Background Colour": [46, 46, 46],
   "Timer Size": 80,
@@ -8,5 +8,6 @@
   "Timer Colour": [235, 235, 235],
   "Font Colour": [255, 255, 255],
   "Timer Sound": "Media/Time_Up.mp3",
-  "Logo": "Media/Logos/Red.png"
+  "Logo": "Media/Logos/Red.png",
+  "Arrow Image": "Media/Arrow.png"
 }
