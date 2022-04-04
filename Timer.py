@@ -59,8 +59,6 @@ class Timer:
                 self.sound_played = True
                 self.timer_up()
 
-            self.set_timer()
-
             self.screen.blit(self.background, (0, 0))
             self.time_text.blitme()
 
@@ -75,7 +73,6 @@ class Timer:
         pygame.mixer.music.load(self.settings["Timer Sound"])
         pygame.mixer.music.set_volume(0.2)
         pygame.mixer.music.play()
-        pygame.mixer.music.unload()
 
 
 def main():
