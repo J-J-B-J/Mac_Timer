@@ -8,7 +8,7 @@ from pygame import quit as quit_pygame
 class Settings:
     """A class to manage settings."""
     def __init__(self):
-        self.settings_file = "Settings.json"
+        self.settings_file = "../Settings.json"
         try:
             with open(self.settings_file, "r") as file:
                 self.settings = load(file)

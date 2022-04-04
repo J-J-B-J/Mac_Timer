@@ -3,6 +3,10 @@
   "Screen Size": [500, 100],
   "Screen Caption": "MacTimer",
   "Screen Background Colour": [46, 46, 46],
-  "Font Size": 32,
-  "Timer Sound": "Time_Up.mp3"
+  "Timer Size": 80,
+  "Font Size": 30,
+  "Timer Colour": [235, 235, 235],
+  "Font Colour": [255, 255, 255],
+  "Timer Sound": "Media/Time_Up.mp3",
+  "Logo": "Media/Logos/Red.png"
 }
