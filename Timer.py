@@ -75,6 +75,12 @@ class Timer:
                             self.playing = True
                             self.sound_played = False
                         self.key_released = False
+                    elif event.key == pygame.K_r:
+                        self.hrs = 0
+                        self.mins = 0
+                        self.secs = 0
+                        self.sound_played = True
+                        self.playing = False
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_RETURN:
                         self.key_released = True
