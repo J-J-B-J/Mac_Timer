@@ -1,6 +1,11 @@
 """A timer class"""
 
-import pygame
+from pygame import init, Surface, QUIT, KEYDOWN, K_RETURN, K_r, KEYUP
+from pygame.display import set_mode, set_caption, set_icon, flip
+from pygame.image import load
+from pygame.font import Font
+from pygame.event import get
+from pygame.mixer import music
 from sys import exit as end_program
 from Classes.Settings import Settings
 from os import system
@@ -24,18 +29,18 @@ class Timer:
     def __init__(self):
         self.settings = Settings().settings
 
-        pygame.init()
+        init()  # Init pygame
 
-        self.screen = pygame.display.set_mode(self.settings["Screen Size"])
-        pygame.display.set_caption(self.settings["Screen Caption"])
-        logo = pygame.image.load(self.settings["Logo"])
-        pygame.display.set_icon(pygame.Surface.convert(logo))
+        self.screen = set_mode(self.settings["Screen Size"])
+        set_caption(self.settings["Screen Caption"])
+        logo = load(self.settings["Logo"])
+        set_icon(Surface.convert(logo))
 
-        self.background = pygame.Surface(self.screen.get_size())
+        self.background = Surface(self.screen.get_size())
         self.background = self.background.convert()
         self.background.fill(self.settings["Screen Background Colour"])
 
-        self.font = pygame.font.Font(None, self.settings["Timer Size"])
+        self.font = Font(None, self.settings["Timer Size"])
 
         self.hrs = 0
         self.mins = 0
@@ -64,25 +69,25 @@ class Timer:
     def run(self):
         """Run the main loop for the program."""
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+            for event in get():
+                if event.type == QUIT:
                     end_program()
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN and self.key_released:
+                elif event.type == KEYDOWN:
+                    if event.key == K_RETURN and self.key_released:
                         if self.playing:
                             self.playing = False
                         else:
                             self.playing = True
                             self.sound_played = False
                         self.key_released = False
-                    elif event.key == pygame.K_r:
+                    elif event.key == K_r:
                         self.hrs = 0
                         self.mins = 0
                         self.secs = 0
                         self.sound_played = True
                         self.playing = False
-                elif event.type == pygame.KEYUP:
-                    if event.key == pygame.K_RETURN:
+                elif event.type == KEYUP:
+                    if event.key == K_RETURN:
                         self.key_released = True
 
             if self.hrs == self.mins == self.secs == 0 and not \
@@ -140,7 +145,7 @@ class Timer:
                                       self.background)
 
             self.time_text.blitme()
-            pygame.display.flip()
+            flip()
 
     def timer_up(self):
         """Show a notification and (if configured) play a sound"""
@@ -149,9 +154,9 @@ class Timer:
                with title "Timer Done"'
                """)
         if self.settings["Play Sound"]:
-            pygame.mixer.music.load(self.settings["Timer Sound"])
-            pygame.mixer.music.set_volume(0.2)
-            pygame.mixer.music.play()
+            music.load(self.settings["Timer Sound"])
+            music.set_volume(0.2)
+            music.play()
 
 
 def main():

@@ -1,11 +1,12 @@
 """A class to print text"""
-import pygame.font
+from pygame.font import Font
+from pygame import Surface
 
 
 class Text:
     """A class to take care of text"""
-    def __init__(self, text: str, font: pygame.font.Font, colour: list,
-                 background: pygame.Surface):
+    def __init__(self, text: str, font: Font, colour: list,
+                 background: Surface):
         self.font = font
         self.text = font.render(text, True, tuple(colour))
         self.textpos = self.text.get_rect()
@@ -19,8 +20,8 @@ class Text:
 
 class TimeText(Text):
     """A class to take care of the timer text"""
-    def __init__(self, text: str, font: pygame.font.Font, colour: list,
-                 background: pygame.Surface):
+    def __init__(self, text: str, font: Font, colour: list,
+                 background: Surface):
         super().__init__(text, font, colour, background)
         self.textpos.centery = self.background.get_rect().centery
         self.textpos.left = self.background.get_rect().left + 30
