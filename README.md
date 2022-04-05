@@ -5,6 +5,6 @@ This project is a timer made for macs (but that probably also works on  PC, I ha
 
 Simply run the program from your fav python editor, then disconnect the editor from the program.
 
-Use the arrows above and below the numbers to change them, and return to play/pause!
+Use the arrows above and below the numbers to change them, and return to play/pause! Press r to reset.
 
 When the timer goes off, it will play two piano notes in quick succession (unless configured otherwise in settings.json) and show a notification!
